@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.entity.Product" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Phi
@@ -338,6 +341,8 @@
                 <div class="shop-products row products sidebar grid-view">
                   <div class="shop-products-inner">
                     <div class="row">
+                      <% List<Product> list = (List<Product>)  request.getAttribute("listP");
+                      for (Product p: list){%>
                       <div
                               class=" item-col col-6 col-sm-6 col-md-4 col-xl-3 post-2285 product type-product status-publish has-post-thumbnail product_cat-flying-eagle product_cat-phu-kien pa_kich-co-l-2 pa_kich-co-m-2 pa_kich-co-s-2 pa_kich-co-xl pa_mau-sac-den last outofstock shipping-taxable purchasable product-type-variable">
                         <div class="product-wrapper gridview">
@@ -346,13 +351,13 @@
                               <a href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"
                                  class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                 <img width="300" height="300"
-                                     src="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-3-1-300x300.jpg"
+                                     src="<%=p.getMain_img()%>"
                                      class="primary_image" alt=""><img width="300"
                                                                        height="300"
-                                                                       src="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-300x300.jpg"
+                                                                       src="<%=p.getSub_img()%>"
                                                                        class="secondary_image" alt="" decoding="async"
                                                                        loading="lazy"
-                                                                       srcset="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-300x300.jpg 300w, https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-150x150.jpg 150w, https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-600x600.jpg 600w"
+                                                                       srcset=""
                                                                        sizes="(max-width: 300px) 100vw, 300px">
                                 <!-- end sale label -->
                               </a>
@@ -371,14 +376,12 @@
                               <!-- hook rating -->
                             </div>
                             <div class="product-name">
-                              <h2 class="woocommerce-loop-product__title">Bộ Bảo Hộ
-                                Patin Flying Eagle ARMOUR-X</h2> <a
-                                    href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/">Bộ
-                              Bảo Hộ Patin Flying Eagle ARMOUR-X</a>
+                              <h2 class="woocommerce-loop-product__title"><%=p.getTensp()%></h2> <a
+                                    href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"><%=p.getTensp()%></a>
                             </div>
                             <div class="price-box">
                               <div class="price-box-inner">
-                                                                    <span class="woocommerce-Price-amount amount"><bdi>480.000&nbsp;<span
+                                                                    <span class="woocommerce-Price-amount amount"><bdi><%=p.getPrice()%>&nbsp;<span
                                                                             class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                               </div>
                             </div>
@@ -388,13 +391,13 @@
                                 <p class="product woocommerce add_to_cart_inline "
                                    style="border:4px solid #ccc; padding: 12px;">
                                                                         <span
-                                                                                class="woocommerce-Price-amount amount"><bdi>480.000&nbsp;<span
+                                                                                class="woocommerce-Price-amount amount"><bdi><%=p.getPrice()%><span
                                                                                 class="woocommerce-Price-currencySymbol">₫</span></bdi></span><a
                                         href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"
                                         data-quantity="1"
                                         class="button wp-element-button product_type_variable"
                                         data-product_id="2285" data-product_sku=""
-                                        aria-label="Lựa chọn cho “Bộ Bảo Hộ Patin Flying Eagle ARMOUR-X”"
+                                        aria-label="Lựa chọn cho “<%=p.getTensp()%>”"
                                         rel="nofollow">Lựa chọn các tùy chọn</a></p>
                               </div>
 
@@ -408,13 +411,13 @@
                                 <a href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"
                                    class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                   <img width="300" height="300"
-                                       src="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-3-1-300x300.jpg"
+                                       src="<%=p.getMain_img()%>>"
                                        class="primary_image" alt=""><img
                                         width="300" height="300"
-                                        src="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-300x300.jpg"
+                                        src="<%=p.getSub_img()%>"
                                         class="secondary_image" alt=""
                                         decoding="async" loading="lazy"
-                                        srcset="https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-300x300.jpg 300w, https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-150x150.jpg 150w, https://www.patinchinhhang.com/wp-content/uploads/2019/04/BH-ARMOR-2-600x600.jpg 600w"
+                                        srcset=""
                                         sizes="(max-width: 300px) 100vw, 300px">
                                   <!-- end sale label -->
                                 </a>
@@ -428,25 +431,20 @@
                                       rel="tag">Phụ kiện</a>
                               </div>
                               <div class="product-name">
-                                <h2 class="woocommerce-loop-product__title">Bộ Bảo
-                                  Hộ Patin Flying Eagle ARMOUR-X</h2> <a
-                                      href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/">Bộ
-                                Bảo Hộ Patin Flying Eagle ARMOUR-X</a>
+                                <h2 class="woocommerce-loop-product__title"><%=p.getTensp()%></h2> <a
+                                      href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"><%=p.getTensp()%></a>
                               </div>
                               <!-- hook rating -->
                               <div class="price-box">
                                 <div class="price-box-inner">
                                                                         <span
-                                                                                class="woocommerce-Price-amount amount"><bdi>480.000&nbsp;<span
+                                                                                class="woocommerce-Price-amount amount"><bdi><%=p.getPrice()%>&nbsp;<span
                                                                                 class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                                 </div>
                               </div>
                               <!-- end price -->
                               <div class="product-desc">
-                                <p>Bộ bảo hộ patin Flying eagle Armour-x sử dụng
-                                  chất liệu cao cấp gồm 6 món: tay, cùi trỏ, đầu
-                                  gối, bảo vệ người chơi tránh chấn thương đáng
-                                  kể.</p>
+                                <p><%=p.getDesc()%></p>
                               </div>
                               <!-- end desc -->
                               <div class="product-button">
@@ -454,14 +452,14 @@
                                   <p class="product woocommerce add_to_cart_inline "
                                      style="border:4px solid #ccc; padding: 12px;">
                                                                             <span
-                                                                                    class="woocommerce-Price-amount amount"><bdi>480.000&nbsp;<span
+                                                                                    class="woocommerce-Price-amount amount"><bdi><%=p.getPrice()%><span
                                                                                     class="woocommerce-Price-currencySymbol">₫</span></bdi></span><a
                                           href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"
                                           data-quantity="1"
                                           class="button wp-element-button product_type_variable"
                                           data-product_id="2285"
                                           data-product_sku=""
-                                          aria-label="Lựa chọn cho “Bộ Bảo Hộ Patin Flying Eagle ARMOUR-X”"
+                                          aria-label="Lựa chọn cho “<%=p.getTensp()%>”"
                                           rel="nofollow">Lựa chọn các tùy chọn</a>
                                   </p>
                                 </div>
@@ -471,6 +469,8 @@
                           </div>
                         </div>
                       </div>
+                      <%}%>
+<%--                      end loop here--%>
                     </div>
                   </div>
                 </div>
