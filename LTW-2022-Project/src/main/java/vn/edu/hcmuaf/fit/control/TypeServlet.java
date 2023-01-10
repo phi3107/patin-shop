@@ -9,15 +9,15 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.List;
 
-@WebServlet(name = "ShopServlet", value = "/shop")
-public class ShopServlet extends HttpServlet {
+@WebServlet(name = "TypeServlet", value = "/Type")
+public class TypeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String typeID = request.getParameter("tid");
         DAO dao = new DAO();
-        List<Product> list =  dao.getAllProduct();
+        List<Product> list =  dao.getAllProductByTID(typeID);
         List<TypeOfProduct> listT = dao.getAllTypeOfProduct();
         List<Brand> listB = dao.getAllBrand();
 

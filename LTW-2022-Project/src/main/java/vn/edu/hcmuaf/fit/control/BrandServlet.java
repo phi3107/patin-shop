@@ -9,15 +9,15 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.List;
 
-@WebServlet(name = "ShopServlet", value = "/shop")
-public class ShopServlet extends HttpServlet {
+@WebServlet(name = "BrandServlet", value = "/Brand")
+public class BrandServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String brandID = request.getParameter("bid");
         DAO dao = new DAO();
-        List<Product> list =  dao.getAllProduct();
+        List<Product> list =  dao.getAllProductByBID(brandID);
         List<TypeOfProduct> listT = dao.getAllTypeOfProduct();
         List<Brand> listB = dao.getAllBrand();
 

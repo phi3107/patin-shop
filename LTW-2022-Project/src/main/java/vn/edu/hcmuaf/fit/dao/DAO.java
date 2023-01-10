@@ -1,8 +1,10 @@
 package vn.edu.hcmuaf.fit.dao;
 
 import vn.edu.hcmuaf.fit.context.DBContext;
+import vn.edu.hcmuaf.fit.entity.Brand;
 import vn.edu.hcmuaf.fit.entity.Product;
 import vn.edu.hcmuaf.fit.entity.TypeOfProduct;
+import vn.edu.hcmuaf.fit.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,12 +66,208 @@ public class DAO {
         }
         return list;
     }
+    public List<Brand> getAllBrand(){
+        List<Brand> list = new ArrayList<Brand>();
+        String query = "select * from thuonghieu";
+
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Brand(
+                        rs.getString(1),
+                        rs.getString(2)
+                ));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    public List<Product> getAllProductByTID(String tid){
+        List<Product> list = new ArrayList<Product>();
+        String query = "select * from sanpham where id_loaisp = ?";
+
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,tid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(13)
+                ));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+
+    public List<Product> getAllProductByBID(String bid){
+        List<Product> list = new ArrayList<Product>();
+        String query = "select * from sanpham where id_thuonghieu = ?";
+
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,bid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(13)
+                ));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    public Product getProductByPID(String pid){
+        String query = "select * from sanpham where id_sp = ?";
+        Product p =null;
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,pid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                p = new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(13)
+                );
+            }
+        }catch (Exception e){
+
+        }
+        return p;
+    }
+    public List<String> getColorByPID(String pid){
+        String query = "select * from color where id_sp = ?";
+        List<String> list = new ArrayList<String>();
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,pid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(rs.getString(3));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    public List<String> getSizeByPID(String pid){
+        String query = "select * from size where id_sp = ?";
+        List<String> list = new ArrayList<String>();
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,pid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(rs.getString(3));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    public List<String> getImgByPID(String pid){
+        String query = "select * from images where id_sp = ?";
+        List<String> list = new ArrayList<String>();
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,pid);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(rs.getString(3));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    public List<Product> searchByName(String txtSearch){
+        List<Product> list = new ArrayList<Product>();
+        String query = "select * from sanpham where ten_sp like ?";
+
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,"%"+txtSearch+"%");
+            rs = ps.executeQuery();
+            while (rs.next()){
+                list.add(new Product(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getInt(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(13)
+                ));
+            }
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-        List<TypeOfProduct> list = dao.getAllTypeOfProduct();
-        for (TypeOfProduct t : list){
-            System.out.println(t.getName());
+//        List<Brand> list = dao.getAllBrand();
+//        for (Brand t : list){
+//            System.out.println(t.getName());
+//        }
+        List<Product> list = dao.searchByName("hộ");
+        for (Product p: list){
+            System.out.println(p.getTensp());
         }
     }
 }

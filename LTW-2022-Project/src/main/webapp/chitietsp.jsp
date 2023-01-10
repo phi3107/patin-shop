@@ -1,4 +1,5 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.entity.Product" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Phi
   Date: 1/10/2023
@@ -209,6 +210,11 @@
 </head>
 
 <body
+        <%Product p = (Product) request.getAttribute("product");
+          List<String> listColor = (List<String>) request.getAttribute("listColor");
+          List<String> listSize = (List<String>) request.getAttribute("listSize");
+          List<String> listImg  = (List<String>) request.getAttribute("listImg");
+        %>
         class="product-template-default single single-product postid-5491 theme-sneaker woocommerce woocommerce-page woocommerce-js wpb-js-composer js-comp-ver-6.10.0 vc_responsive mmm mega_main_menu-2-2-2"
         style="">
 <div id="yith-wcwl-popup-message" style="display: none;">
@@ -239,7 +245,7 @@
             <span class="separator">/</span>
 
 
-            Giày trượt patin trẻ em Flying Eagle S9 Dynamo
+            <%=p.getTensp()%>
 
 
 
@@ -248,7 +254,7 @@
       </div>
       <div class="container">
         <header class="entry-header shop-title">
-          <h1 class="entry-title">Giày trượt patin trẻ em Flying Eagle S9 Dynamo</h1>
+          <h1 class="entry-title"><%=p.getTensp()%></h1>
         </header>
       </div>
       <div class="product-page">
@@ -270,30 +276,30 @@
 
                             <div class="woocommerce-product-gallery__image "
                                  data-o_data-thumb=""
-                                 data-thumb="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-600x600.jpg">
+                                 data-thumb="<%=p.getMain_img()%>">
                               <div class="yith_magnifier_zoom_wrap"><a
-                                      href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus.jpg"
+                                      href="<%=p.getMain_img()%>"
                                       itemprop="image"
                                       class="yith_magnifier_zoom woocommerce-main-image"
                                       title="giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus"
-                                      data-o_href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus.jpg"><img
+                                      data-o_href="<%=p.getSub_img()%>"><img
                                       width="600" height="600"
-                                      src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-600x600.jpg"
+                                      src="<%=p.getMain_img()%>"
                                       class="attachment-shop_single size-shop_single wp-post-image"
                                       alt="" decoding="async"
-                                      srcset="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-600x600.jpg"
+                                      srcset="<%=p.getMain_img()%>"
                                       sizes="(max-width: 600px) 100vw, 600px"
-                                      data-o_src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-600x600.jpg"
+                                      data-o_src="<%=p.getSub_img()%>"
                                       data-o_height="600" data-o_width="600"
-                                      data-o_srcset="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-600x600.jpg 600w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-300x300.jpg 300w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-150x150.jpg 150w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-768x768.jpg 768w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-700x700.jpg 700w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus.jpg 800w"
+                                      data-o_srcset=""
                                       data-o_sizes="(max-width: 600px) 100vw, 600px"
                                       data-o_title=""
                                       title="giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus"
                                       data-o_data-caption="" data-caption=""
                                       data-o_alt="" data-o_data-src=""
-                                      data-src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus.jpg"
+                                      data-src="<%=p.getSub_img()%>"
                                       data-o_data-large_image=""
-                                      data-large_image="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus.jpg"
+                                      data-large_image="<%=p.getSub_img()%>"
                                       data-o_data-large_image_width=""
                                       data-large_image_width="800"
                                       data-o_data-large_image_height=""
@@ -413,55 +419,27 @@
                                     style="text-align: left; float: none; position: absolute; inset: 0px auto auto 0px; margin: 0px; height: 0px; width: 132.163px;">
                                   <li class="yith_magnifier_thumbnail first active-thumbnail"
                                       style="height: 0px;"><a
-                                          href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus.jpg"
+                                          href="<%=p.getSub_img()%>"
                                           class="yith_magnifier_thumbnail first active-thumbnail"
                                           title="giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus"
                                           data-small="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-600x600.jpg"><img
                                           width="150" height="150"
-                                          src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-tre-em-flying-eagle-s9-mau-do-roll-plus-150x150.jpg"
+                                          src="<%=p.getSub_img()%>"
                                           class="attachment-shop_thumbnail size-shop_thumbnail"
                                           alt="" loading="lazy"></a></li>
+                                  <% if (listImg!=null){
+                                  for (String s: listImg){%>
                                   <li class="yith_magnifier_thumbnail inactive-thumbnail"
                                       style="height: 0px;"><a
                                           href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-hong-roll-plus.jpg"
                                           class="yith_magnifier_thumbnail inactive-thumbnail"
                                           title="giay-patin-flying-eagle-s9-mau-hong-roll-plus"
-                                          data-small="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-hong-roll-plus-600x600.jpg"><img
+                                          data-small="<%=s%>"><img
                                           width="150" height="150"
-                                          src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-hong-roll-plus-150x150.jpg"
+                                          src=""
                                           class="attachment-shop_thumbnail size-shop_thumbnail"
                                           alt="" loading="lazy"></a></li>
-                                  <li class="yith_magnifier_thumbnail inactive-thumbnail"
-                                      style="height: 0px;"><a
-                                          href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus.jpg"
-                                          class="yith_magnifier_thumbnail inactive-thumbnail"
-                                          title="giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus"
-                                          data-small="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-600x600.jpg"><img
-                                          width="150" height="150"
-                                          src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-150x150.jpg"
-                                          class="attachment-shop_thumbnail size-shop_thumbnail"
-                                          alt="" loading="lazy"></a></li>
-                                  <li class="yith_magnifier_thumbnail inactive-thumbnail"
-                                      style="height: 0px;"><a
-                                          href="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-dynamo-ba-mau-xanh-do-hong-hcm.jpg"
-                                          class="yith_magnifier_thumbnail inactive-thumbnail"
-                                          title="giay-patin-flying-eagle-s9-dynamo-ba-mau-xanh-do-hong-hcm"
-                                          data-small="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-dynamo-ba-mau-xanh-do-hong-hcm-600x400.jpg"><img
-                                          width="150" height="100"
-                                          src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-dynamo-ba-mau-xanh-do-hong-hcm-150x100.jpg"
-                                          class="attachment-shop_thumbnail size-shop_thumbnail"
-                                          alt="" loading="lazy"></a></li>
-                                  <li class="yith_magnifier_thumbnail inactive-thumbnail last"
-                                      style="height: 0px;"><a
-                                          href="https://www.patinchinhhang.com/wp-content/uploads/2020/12/chonsizegiay_s5ss6s.jpg"
-                                          class="yith_magnifier_thumbnail inactive-thumbnail last"
-                                          title="chon-size-giay-tre-em-flying-eagle-s5s-s6s"
-                                          data-small="https://www.patinchinhhang.com/wp-content/uploads/2020/12/chonsizegiay_s5ss6s-600x152.jpg"><img
-                                          width="150" height="38"
-                                          src="https://www.patinchinhhang.com/wp-content/uploads/2020/12/chonsizegiay_s5ss6s-150x38.jpg"
-                                          class="attachment-shop_thumbnail size-shop_thumbnail"
-                                          alt="Bảng size giày patin trẻ em FLying Eagle"
-                                          loading="lazy"></a></li>
+                                  <%}}%>
                                 </ul>
                               </div>
                             </div>
@@ -473,26 +451,15 @@
                       </div>
                       <div class="col-12 col-lg-6 col-xl-7">
                         <div class="summary entry-summary single-product-info">
-                          <h1 class="product_title entry-title">Giày trượt patin trẻ em
-                            Flying Eagle S9 Dynamo</h1>
+                          <h1 class="product_title entry-title"><%=p.getTensp()%></h1>
                           <p class="price"><span
-                                  class="woocommerce-Price-amount amount"><bdi>3.460.000&nbsp;<span
+                                  class="woocommerce-Price-amount amount"><bdi><%=p.getPrice()%>&nbsp;<span
                                   class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                           </p>
+                          <% if (!"".equals(p.getBonus())){%>
                           <div class="woocommerce-product-details__short-description">
-                            <p class="p1"><strong>Mua giày patin Flying Eagle S9 tặng
-                              ngay</strong></p>
-                            <p class="p1"><span class="s1">⊕</span> Tặng kèm bộ bảo hộ
-                              siêu bền trị giá 250.000đ</p>
-                            <p class="p1"><span class="s1">⊕</span> Tặng 1 nón bảo hộ
-                              Flying Eagle V5</p>
-                            <p class="p1"><span class="s1">⊕</span> Giao hàng tận nơi và
-                              thanh toán trực tiếp</p>
-                            <p><span class="s1">⊕</span> <strong><a
-                                    href="https://www.patinchinhhang.com/chinh-sach-bao-hanh-giay-patin-tai-roll-plus/">Bảo
-                              hành sản phẩm 6 tháng tại cửa hàng</a></strong>
-                            </p>
-                          </div>
+                            <p class="p1"><strong><%=p.getBonus()%></strong></p>
+                          </div><%}%>
 
                           <form class="variations_form cart"
                                 action="https://www.patinchinhhang.com/giay-patin-tre-em-flying-eagle-s9/"
@@ -504,6 +471,8 @@
                             <table class="variations" cellspacing="0"
                                    role="presentation">
                               <tbody>
+
+                              <% if (listColor!=null) {%>
                               <tr>
                                 <th class="label"><label for="pa_mau-sac">Màu
                                   sắc</label></th>
@@ -514,19 +483,17 @@
                                           data-show_option_none="yes">
                                     <option value="">Chọn một tùy chọn
                                     </option>
+                                    <% for (String s: listColor){%>
                                     <option value="den"
-                                            class="attached enabled">Đen
+                                            class="attached enabled"><%=s%>
                                     </option>
-                                    <option value="hong"
-                                            class="attached enabled">Hồng
-                                    </option>
-                                    <option value="xanh-duong"
-                                            selected="selected"
-                                            class="attached enabled">Xanh dương
-                                    </option>
+                                    <%}%>
                                   </select>
                                 </td>
                               </tr>
+                              <%}%>
+
+                              <% if (listSize.size()>0) {%>
                               <tr>
                                 <th class="label"><label for="pa_kich-co">Kích
                                   cỡ</label></th>
@@ -537,18 +504,15 @@
                                           data-show_option_none="yes">
                                     <option value="">Chọn một tùy chọn
                                     </option>
+                                    <% for (String s: listSize){%>
                                     <option value="l"
-                                            class="attached enabled">L (38-42)
+                                            class="attached enabled"><%=s%>
                                     </option>
-                                    <option value="m" selected="selected"
-                                            class="attached enabled">M (33-37)
-                                    </option>
-                                    <option value="s"
-                                            class="attached enabled">S (28-32)
-                                    </option>
+                                    <%}%>
                                   </select>
                                 </td>
                               </tr>
+                              <%}%>
                               </tbody>
                             </table>
 

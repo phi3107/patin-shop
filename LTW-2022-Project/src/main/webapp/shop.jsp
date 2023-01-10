@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.entity.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.entity.TypeOfProduct" %>
+<%@ page import="vn.edu.hcmuaf.fit.entity.Brand" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -315,8 +317,8 @@
                       <a href="#" class="list" title="List">List</a>
                     </div>
                     <div class="woocommerce-notices-wrapper"></div>
-                    <p class="woocommerce-result-count">
-                      Hiển thị 1–16 của 95 kết quả</p>
+<%--                    <p class="woocommerce-result-count">--%>
+<%--                      Hiển thị 1–16 của 95 kết quả</p>--%>
                     <form class="woocommerce-ordering hidden-xs" method="get">
                       <div class="orderby-wrapper">
                         <label>Sort By :</label>
@@ -348,13 +350,13 @@
                         <div class="product-wrapper gridview">
                           <div class="list-col4">
                             <div class="product-image">
-                              <a href="https://www.patinchinhhang.com/bo-bao-ho-patin-flying-eagle-armour-x/"
+                              <a href="detail?pid=<%=p.getId()%>"
                                  class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
                                 <img width="300" height="300"
                                      src="<%=p.getMain_img()%>"
                                      class="primary_image" alt=""><img width="300"
                                                                        height="300"
-                                                                       src="<%=p.getSub_img()%>"
+                                                                       src="<%=p.getSub_img()==null?"":p.getSub_img()%>"
                                                                        class="secondary_image" alt="" decoding="async"
                                                                        loading="lazy"
                                                                        srcset=""
@@ -494,29 +496,19 @@
                 <div class="clearfix"></div>
               </div>
             </div>
+            <% List< TypeOfProduct> listT = (List<TypeOfProduct>) request.getAttribute("listT");
+              List< Brand> listB = (List<Brand>) request.getAttribute("listB");%>
             <div id="secondary" class="col-12 col-lg-3 sidebar-shop order-lg-first">
               <aside id="woocommerce_product_categories-1"
                      class="widget woocommerce widget_product_categories">
                 <h3 class="widget-title"><span>Danh mục sản phẩm</span></h3>
                 <ul class="product-categories">
+                  <% for (TypeOfProduct t: listT){%>
                   <li class="cat-item cat-item-245"><a
-                          href="https://www.patinchinhhang.com/banh-xe/">Bánh xe</a> <span
-                          class="count">(6)</span></li>
-                  <li class="cat-item cat-item-123"><a
-                          href="https://www.patinchinhhang.com/custom-ten-giay/">Custom tên
-                    giầy</a> <span class="count">(1)</span></li>
-                  <li class="cat-item cat-item-15 cat-parent"><a
-                          href="https://www.patinchinhhang.com/giay-patin/">Giày patin</a> <span
-                          class="count">(55)</span></li>
-                  <li class="cat-item cat-item-122"><a
-                          href="https://www.patinchinhhang.com/linh-kien/">Linh kiện</a> <span
-                          class="count">(20)</span></li>
-                  <li class="cat-item cat-item-121"><a
-                          href="https://www.patinchinhhang.com/phu-kien/">Phụ kiện</a> <span
-                          class="count">(30)</span></li>
-                  <li class="cat-item cat-item-120 cat-parent"><a
-                          href="https://www.patinchinhhang.com/thuong-hieu/">Thương hiệu</a> <span
-                          class="count">(94)</span></li>
+                          href="Type?tid=<%=t.getId()%>"><%=t.getName()%></a></li> <%}%>
+                  <% for (Brand b: listB){%>
+                  <li class="cat-item cat-item-245"><a
+                          href="Brand?bid=<%=b.getId()%>"><%=b.getName()%></a></li> <%}%>
                 </ul>
               </aside>
               <!-- <aside id="woocommerce_price_filter-1" class="widget woocommerce widget_price_filter">

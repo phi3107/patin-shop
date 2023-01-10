@@ -236,16 +236,16 @@
                                 <div class="cover"></div>
                                 <div class="shadow"></div>
                                 <div class="content">
-                                    <div class="form">
+                                    <form class="form" action="login" method="post">
                                         <h3 class="logo"><i class="fa-solid fa-key"></i></h3>
                                         <h2>Đăng nhập</h2>
                                         <div class="inputBox">
-                                            <input type="text" required>
+                                            <input name="email" type="text" required>
                                             <i class="fa-solid fa-user"></i>
                                             <span>Email</span>
                                         </div>
                                         <div class="inputBox">
-                                            <input type="password" required>
+                                            <input name="pass" type="password" required>
                                             <i class="fa-solid fa-lock"></i>
                                             <span>Password</span>
                                         </div>
@@ -256,7 +256,7 @@
                                         <div class="inputBox">
                                             <input type="submit" value="Login">
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

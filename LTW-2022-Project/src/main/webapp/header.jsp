@@ -101,13 +101,13 @@
                                                 <h2 class="widgettitle">Search</h2>
                                                 <form role="search" method="get"
                                                       class="searchform productsearchform"
-                                                      action="https://www.patinchinhhang.com/">
+                                                      action="search">
                                                     <div class="form-input"><input type="text"
-                                                                                   placeholder="Tìm sản phẩm…" name="s"
+                                                                                   placeholder="Tìm sản phẩm…" name="txt"
                                                                                    class="ws"><button
                                                             class="button-search searchsubmit productsearchsubmit"
-                                                            type="submit">Tìm kiếm</button><input
-                                                            type="hidden" name="post_type" value="product">
+                                                            type="submit">Tìm kiếm</button>
+<%--                                                        <input type="hidden" name="post_type" value="product">--%>
                                                     </div>
                                                 </form>
                                             </div>
@@ -830,9 +830,9 @@
                                 class="header-social-icon wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-12 vc_hidden-sm vc_hidden-xs">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
-                                    <a href="dangky.html">Đăng ký</a>
+                                    <a href="dangky.jsp">Đăng ký</a>
                                     <span style="color: yellow;"> / </span>
-                                    <a href="dangnhap.html">Đăng nhập</a>
+                                    <a href="dangnhap.jsp">Đăng nhập</a>
                                 </div>
                             </div>
                         </div>
