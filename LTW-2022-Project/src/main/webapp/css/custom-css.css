@@ -1,0 +1,88 @@
+.swatch-72mm,
+.swatch-76mm,
+.swatch-80mm {
+	min-width: 50px;
+}
+.sticky-mobile-menu {
+	display: none;
+}
+@media screen and (max-width: 768px){
+	.mobile-hide {
+		display: none !important;
+	}
+	#home-slider {
+		max-height: 100% !important;
+	}
+	#home-carousel-mobile .vc_carousel-slideline, #home-carousel-mobile .vc_carousel-slideline-inner,#home-carousel-mobile .vc_item{
+		height: 100% !important;
+		width: 100%;
+	}
+	.sticky-mobile-menu {
+		display: block;
+		position: fixed;
+		width: 100%;
+		margin: 0;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		margin: 0px !important;
+	}
+	.sticky-mobile-menu .logo {
+		position: absolute;
+		width: 60px;
+		top: 3px;
+		left: 5px;
+		z-index: 10;
+		background: #343a40;
+	}
+	.sticky-mobile-menu .mobile-menu {
+		background: #343a40 
+			!important;
+	}
+	.header-content .container{
+		padding: 0;
+		height: 50px
+	}
+	.main-container .product-view .single-product-image.slider {
+		padding-right: 0px;
+	}
+	.main-container .product-view .single-product-image .thumbnails.slider .caroufredsel_wrapper ul li a {
+		max-width: 70px;
+		max-height: 70px
+	}
+	.main-container .product-view .single-product-image .thumbnails.slider #slider-next,.main-container .product-view .single-product-image .thumbnails.slider #slider-prev {
+		top: 30px !important
+	}
+}
+.small-body .page-wrapper .footer {
+	position: relative;
+}
+.header-1 {
+	margin-bottom: 0 !important;
+}
+.woocommerce .product-wrapper .onsale:after, .woocommerce .single-product-image .onsale:after {
+	border-right: 4px solid #e84039;
+}
+.onsale {
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin {
+    0%   { -moz-transform: rotate(0deg); }
+    50%  { -moz-transform: rotate(45deg); }
+    100% { -moz-transform: rotate(0deg); } 
+}
+@-webkit-keyframes spin { 
+    0%   { -webkit-transform: rotate(0deg); }
+    50%  { -webkit-transform: rotate(45deg); }
+    100% { -webkit-transform: rotate(0deg); } 
+}
+@keyframes spin {
+    0%   { -webkit-transform: rotate(0deg); transform:rotate(0deg); }
+    50%  { -webkit-transform: rotate(45deg); transform:rotate(45deg); }
+    100% { -webkit-transform: rotate(0deg); transform:rotate(0deg); }
+}
+#billing_first_name_field {
+	width: 100%
+}
