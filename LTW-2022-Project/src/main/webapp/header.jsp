@@ -826,6 +826,7 @@
                                 </div>
                             </div>
                         </div>
+                        <% session.g %>
                         <div
                                 class="header-social-icon wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-12 vc_hidden-sm vc_hidden-xs">
                             <div class="vc_column-inner">

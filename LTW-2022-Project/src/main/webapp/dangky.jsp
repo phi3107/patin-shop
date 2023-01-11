@@ -5,6 +5,7 @@
   Time: 6:40 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="vi" prefix="og: https://ogp.me/ns#"
       class="yes-js js_active js js csstransforms csstransforms3d csstransitions js_active vc_desktop vc_transform vc_transform">
@@ -231,27 +232,35 @@
             <div id="grid" style="margin-bottom: 50px">
 
               <div></div>
-
+              <% String alert = (String) request.getAttribute("alert");
+              String reFullName = (String) request.getAttribute("reFullName");
+              String rePhone  = (String) request.getAttribute("rePhone");
+              String reEmail  = (String) request.getAttribute("reEmail");
+              alert = (alert==null)?"":alert;
+              reFullName = (reFullName==null)?"":reFullName;
+              rePhone  = (rePhone==null)?"":rePhone;
+              reEmail = (reEmail==null)?"":reEmail;
+              %>
               <div id="grid__content">
                 <div id="card">
                   <form class="form" action="signup" method="post">
 
                     <h1 id="title">Đăng ký</h1>
-
+                    <p style="margin: auto; color: red"><%=alert%></p>
                     <div class="signup__field">
-                      <label for="first_name" class="label">Họ tên</label>
-                      <input type="text" name="fullName" id="first_name" class="input-field"
+                      <label for="fullName" class="label">Họ tên</label>
+                      <input type="text" name="fullName" id="fullName" class="input-field" value="<%=reFullName%>"
                              autofocus>
                     </div>
 
                     <div class="signup__field">
                       <label for="phone" class="label">Số điện thoại</label>
-                      <input type="tel" name="phone" id="phone" class="input-field">
+                      <input type="tel" name="phone" id="phone" class="input-field" value="<%=rePhone%>">
                     </div>
 
                     <div class="signup__field">
                       <label for="email" class="label">Email</label>
-                      <input type="email" name="email" id="email" class="input-field" required>
+                      <input type="email" name="email" id="email" class="input-field" required value="<%=reEmail%>">
                     </div>
 
                     <div class="signup__field">

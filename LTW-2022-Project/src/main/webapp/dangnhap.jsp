@@ -237,14 +237,14 @@
                                 <div class="cover"></div>
                                 <div class="shadow"></div>
                                 <div class="content">
-<%--                                    <% String msg = request.getAttribute("alert").toString();--%>
-<%--                                    msg = msg==null?"":msg;%>--%>
+                                    <% String msg = (String) request.getAttribute("alert");
+                                    msg = msg==null?"":msg;%>
                                     <form class="form" action="login" method="post">
                                         <h3 class="logo"><i class="fa-solid fa-key"></i></h3>
                                         <h2>Đăng nhập</h2>
-                                        <p style="color: red; font-weight: bold"></p>
+                                        <p style="color: red; font-weight: bold"><%=msg%></p>
                                         <div class="inputBox">
-                                            <input name="email" type="text" required>
+                                            <input name="email" type="text" required >
                                             <i class="fa-solid fa-user"></i>
                                             <span>Email</span>
                                         </div>

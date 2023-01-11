@@ -12,12 +12,21 @@ import java.io.IOException;
 public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String fullName = request.getParameter("fullName");
         String phone    = request.getParameter("phone");
         String email    = request.getParameter("email");
         String pass     = request.getParameter("password");
         String rePass  = request.getParameter("password-repeat");
         if (!pass.equals(rePass)){
+            request.setAttribute("alert", "Xác nhận mật khẩu không khớp");
+            request.setAttribute("reFullName", fullName);
+            request.setAttribute("rePhone", phone);
+            request.setAttribute("reEmail", email);
             request.getRequestDispatcher("dangky.jsp").forward(request,response);
         }else{
             DAO dao = new DAO();
@@ -26,13 +35,9 @@ public class SignUpServlet extends HttpServlet {
                 dao.signUp(email,pass,fullName,phone);
                 response.sendRedirect("dangnhap.jsp");
             }else{
+                request.setAttribute("alert", "Email đã tồn tại");
                 request.getRequestDispatcher("dangky.jsp").forward(request,response);
             }
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

@@ -25,6 +25,8 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("alert","Wrong email or password!");
             request.getRequestDispatcher("dangnhap.jsp").forward(request,response);
         }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("user", u);
             response.sendRedirect("shop");
         }
     }
