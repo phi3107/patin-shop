@@ -1,4 +1,4 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Phi
   Date: 1/10/2023
@@ -826,14 +826,20 @@
                                 </div>
                             </div>
                         </div>
-                        <% session.g %>
+                        <% User u = (User) session.getAttribute("user"); %>
                         <div
                                 class="header-social-icon wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-12 vc_hidden-sm vc_hidden-xs">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
+                                    <% if (u==null){%>
                                     <a href="dangky.jsp">Đăng ký</a>
                                     <span style="color: yellow;"> / </span>
                                     <a href="dangnhap.jsp">Đăng nhập</a>
+                                    <%}else{%>
+                                    <a href="user-detail?uid=<%=u.getId()%>"><%=u.getFullName()%></a>
+                                    <span style="color: yellow;"> / </span>
+                                    <a href="logout">Logout</a>
+                                    <%}%>
                                 </div>
                             </div>
                         </div>

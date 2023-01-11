@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="vn.edu.hcmuaf.fit.entity.ProductCart" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="vn.edu.hcmuaf.fit.entity.Product" %><%--
   Created by IntelliJ IDEA.
   User: Phi
   Date: 1/10/2023
@@ -253,65 +256,12 @@
                                                 </thead>
                                                 <tbody>
 
-                                                <tr class="woocommerce-cart-form__cart-item cart_item">
+                                                <% HashMap<String, ProductCart> cart = (HashMap<String, ProductCart>) session.getAttribute("cart");
+                                                long totalPrice = 0;
+                                                for (Map.Entry<String,ProductCart> item: cart.entrySet()){
+                                                    ProductCart productCart = item.getValue();
+                                                %>
 
-                                                    <td class="product-remove">
-                                                        <a href="https://www.patinchinhhang.com/gio-hang/?remove_item=d6e6462105bcd328b0fd64730242e724&amp;_wpnonce=4e8df54b6f"
-                                                           class="remove" aria-label="Remove this item"
-                                                           data-product_id="5491" data-product_sku="">×</a>
-                                                    </td>
-
-                                                    <td class="product-thumbnail">
-                                                        <a
-                                                                href="https://www.patinchinhhang.com/giay-patin-tre-em-flying-eagle-s9/?attribute_pa_mau-sac=xanh-duong&amp;attribute_pa_kich-co=m"><img
-                                                                width="300" height="300"
-                                                                src="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-300x300.jpg"
-                                                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                                alt="" decoding="async" loading="lazy"
-                                                                srcset="https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-300x300.jpg 300w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-150x150.jpg 150w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-768x768.jpg 768w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-700x700.jpg 700w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus-600x600.jpg 600w, https://www.patinchinhhang.com/wp-content/uploads/2022/02/giay-patin-flying-eagle-s9-mau-xanh-duong-roll-plus.jpg 800w"
-                                                                sizes="(max-width: 300px) 100vw, 300px"></a>
-                                                    </td>
-
-                                                    <td class="product-name" data-title="Product">
-                                                        <a
-                                                                href="https://www.patinchinhhang.com/giay-patin-tre-em-flying-eagle-s9/?attribute_pa_mau-sac=xanh-duong&amp;attribute_pa_kich-co=m">Giày
-                                                            trượt patin trẻ em Flying Eagle S9 Dynamo</a>
-                                                        <dl class="variation">
-                                                            <dt class="variation-Musc">Màu sắc:</dt>
-                                                            <dd class="variation-Musc">
-                                                                <p>Xanh dương</p>
-                                                            </dd>
-                                                            <dt class="variation-Kchc">Kích cỡ:</dt>
-                                                            <dd class="variation-Kchc">
-                                                                <p>M (33-37)</p>
-                                                            </dd>
-                                                        </dl>
-                                                    </td>
-
-                                                    <td class="product-price" data-title="Giá">
-                                                                <span class="woocommerce-Price-amount amount"><bdi>3.460.000&nbsp;<span
-                                                                        class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
-                                                    </td>
-
-                                                    <td class="product-quantity" data-title="Số lượng">
-                                                        <div class="quantity">
-                                                            <label class="screen-reader-text"
-                                                                   for="quantity_63bb465745eaa">Giày trượt patin
-                                                                trẻ em Flying Eagle S9 Dynamo số lượng</label>
-                                                            <input type="number" id="quantity_63bb465745eaa"
-                                                                   class="input-text qty text" step="1" min="0"
-                                                                   max=""
-                                                                   name="cart[d6e6462105bcd328b0fd64730242e724][qty]"
-                                                                   value="1" title="SL" size="4" placeholder=""
-                                                                   inputmode="numeric" autocomplete="off">
-                                                        </div>
-                                                    </td>
-
-                                                    <td class="product-subtotal" data-title="Tổng">
-                                                                <span class="woocommerce-Price-amount amount"><bdi>3.460.000&nbsp;<span
-                                                                        class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
-                                                    </td>
-                                                </tr>
                                                 <tr class="woocommerce-cart-form__cart-item cart_item">
 
                                                     <td class="product-remove">
@@ -324,7 +274,7 @@
                                                         <a
                                                                 href="https://www.patinchinhhang.com/balo-dung-giay-patin-flying-eagle-portech/?attribute_pa_mau-sac=den"><img
                                                                 width="300" height="300"
-                                                                src="https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-300x300.jpg"
+                                                                src="<%=productCart.getProduct().getMain_img()%>"
                                                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                                 alt="" decoding="async" loading="lazy"
                                                                 srcset="https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-300x300.jpg 300w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-1024x1024.jpg 1024w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-150x150.jpg 150w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-768x768.jpg 768w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-700x700.jpg 700w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den-600x600.jpg 600w, https://www.patinchinhhang.com/wp-content/uploads/2021/08/Balo-Patin-Flying-Eagle-Portech-2-lon-den.jpg 1100w"
@@ -333,12 +283,11 @@
 
                                                     <td class="product-name" data-title="Product">
                                                         <a
-                                                                href="https://www.patinchinhhang.com/balo-dung-giay-patin-flying-eagle-portech/?attribute_pa_mau-sac=den">Balo
-                                                            đựng giày patin Flying Eagle Portech 2.0 - Đen</a>
+                                                                href="https://www.patinchinhhang.com/balo-dung-giay-patin-flying-eagle-portech/?attribute_pa_mau-sac=den"><%=productCart.getProduct().getTensp()%></a>
                                                     </td>
 
                                                     <td class="product-price" data-title="Giá">
-                                                                <span class="woocommerce-Price-amount amount"><bdi>1.550.000&nbsp;<span
+                                                                <span class="woocommerce-Price-amount amount"><bdi><%=productCart.getProduct().getPrice()%>&nbsp;<span
                                                                         class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                                                     </td>
 
@@ -352,18 +301,19 @@
                                                                    class="input-text qty text" step="1" min="0"
                                                                    max=""
                                                                    name="cart[03b3de6f4ce899debebd54b572f54bf1][qty]"
-                                                                   value="1" title="SL" size="4" placeholder=""
+                                                                   value="<%=productCart.getQuantity()%>" title="SL" size="4" placeholder=""
                                                                    inputmode="numeric" autocomplete="off">
                                                         </div>
                                                     </td>
 
                                                     <td class="product-subtotal" data-title="Tổng">
-                                                                <span class="woocommerce-Price-amount amount"><bdi>1.550.000&nbsp;<span
+                                                                <span class="woocommerce-Price-amount amount"><bdi><%=productCart.getQuantity()*productCart.getProduct().getPrice()%>&nbsp;<span
                                                                         class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                                                     </td>
                                                 </tr>
-
-
+                                                <%
+                                                totalPrice+=productCart.getQuantity()*productCart.getProduct().getPrice();
+                                                }%>
                                                 <tr>
                                                     <td colspan="6" class="actions">
 
@@ -405,7 +355,7 @@
                                                             <tr class="cart-subtotal">
                                                                 <th>Tạm tính</th>
                                                                 <td data-title="Tạm tính"><span
-                                                                        class="woocommerce-Price-amount amount"><bdi>5.010.000&nbsp;<span
+                                                                        class="woocommerce-Price-amount amount"><bdi><%=totalPrice%>&nbsp;<span
                                                                         class="woocommerce-Price-currencySymbol">₫</span></bdi></span>
                                                                 </td>
                                                             </tr>
@@ -418,7 +368,7 @@
                                                             <tr class="order-total">
                                                                 <th>Tổng</th>
                                                                 <td data-title="Tổng"><strong><span
-                                                                        class="woocommerce-Price-amount amount"><bdi>5.010.000&nbsp;<span
+                                                                        class="woocommerce-Price-amount amount"><bdi><%=totalPrice%>>&nbsp;<span
                                                                         class="woocommerce-Price-currencySymbol">₫</span></bdi></span></strong>
                                                                 </td>
                                                             </tr>

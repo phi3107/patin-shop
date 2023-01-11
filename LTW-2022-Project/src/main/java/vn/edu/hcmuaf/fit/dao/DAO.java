@@ -267,7 +267,7 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()){
                 return new User(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -291,7 +291,7 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()){
                 return new User(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -320,6 +320,30 @@ public class DAO {
 
         }
     }
+    public User getUserByID(int id){
+        String query = "select * from user where id_user = ?";
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                return new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8)
+                );
+            }
+        }catch (Exception e){
+
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         DAO dao = new DAO();
@@ -327,7 +351,7 @@ public class DAO {
 //        for (Brand t : list){
 //            System.out.println(t.getName());
 //        }
-        User u = dao.login("admin@gmail.com", "admin369");
+        User u = dao.getUserByID(2);
         System.out.println(u.getFullName());
     }
 }

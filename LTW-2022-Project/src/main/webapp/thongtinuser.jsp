@@ -1,4 +1,4 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: Phi
   Date: 1/10/2023
@@ -246,34 +246,36 @@
               <div id="grid" style="margin-bottom: 50px; grid-template-columns: 20% auto 20%;">
 
                 <div></div>
-
+                <% User user = (User) request.getAttribute("user");%>
                 <div id="grid__content">
                   <div id="card">
-                    <form class="form" action="post" method="post">
+                    <form class="form" action="update-user" method="post">
 
                       <h1 id="title">Thông tin người dùng</h1>
-
+                      <p style="margin: auto; color: red"></p>
                       <div class="signup__field">
-                        <label for="first_name" class="label">Họ tên</label>
-                        <input type="text" name="first_name" id="first_name" class="input-field"
-                               autofocus>
+                        <label for="fullname" class="label">Họ tên</label>
+                        <input type="text" name="fullname" id="fullname" class="input-field"
+                               autofocus value="<%=user.getFullName()%>">
                       </div>
 
                       <div class="signup__field">
                         <label for="phone" class="label">Số điện thoại</label>
-                        <input type="tel" name="phone" id="phone" class="input-field">
+                        <input type="tel" name="phone" id="phone" class="input-field" value="<%=user.getPhone()%>">
                       </div>
 
                       <div class="signup__field">
                         <label for="email" class="label">Email</label>
-                        <input type="email" name="email" id="email" class="input-field" required>
+                        <input type="email" name="email" id="email" class="input-field" required value="<%=user.getEmail()%>">
                       </div>
-
+                      <%String address = user.getAddress();
+                      address = (address==null)?"":address;%>
                       <div class="signup__field">
                         <label for="address" class="label">Địa chỉ</label>
                         <input type="text" name="address" id="address" class="input-field"
-                               required>
+                               required value="<%=address%>">
                       </div>
+                      <input type="hidden" name="uid" value="<%=user.getId()%>">
 
                       <!-- <div class="signup__amazing">
                          <input type="checkbox" id="amazing" name="amazing">

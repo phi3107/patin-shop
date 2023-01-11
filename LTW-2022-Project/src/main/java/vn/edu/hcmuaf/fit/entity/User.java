@@ -1,13 +1,13 @@
 package vn.edu.hcmuaf.fit.entity;
 
 public class User {
-    private String id, email, pass, fullName, phone, address;
-    private int role, isactive;
+    private String email, pass, fullName, phone, address;
+    private int id, role, isactive;
 
     public User() {
     }
 
-    public User(String id, String email, String pass, String fullName, String phone, String address, int role, int isactive) {
+    public User(int id, String email, String pass, String fullName, String phone, String address, int role, int isactive) {
         this.id = id;
         this.email = email;
         this.pass = pass;
@@ -18,11 +18,11 @@ public class User {
         this.isactive = isactive;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
