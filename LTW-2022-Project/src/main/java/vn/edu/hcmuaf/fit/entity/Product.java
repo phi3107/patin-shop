@@ -22,7 +22,8 @@ public class Product {
         this.remain = remain;
         this.status = status;
     }
-
+ public Product(int anInt, String string, String string1, String string2, String string3, String string4, long aLong, long aLong1, String string5, long aLong2) {
+    }
     public String getId() {
         return id;
     }
