@@ -282,6 +282,44 @@ public class DAO {
         }
         return null;
     }
+    public User checkUserExist(String email){
+        String query = "select * from user where email = ?";
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,email);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                return new User(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getInt(8)
+                );
+            }
+        }catch (Exception e){
+
+        }
+        return null;
+    }
+    public void signUp(String email, String pass, String fullName, String phone){
+        String query = "insert into user(email, mat_khau, ho_ten, sdt, dia_chi, role, isactive) values(?,?,?,?,null, 2,1)";
+        try {
+            conn = new DBContext().getConnection(); //ket noi mysql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,email);
+            ps.setString(2, pass);
+            ps.setString(3, fullName);
+            ps.setString(4, phone);
+            ps.executeUpdate();
+        }catch (Exception e){
+
+        }
+    }
 
     public static void main(String[] args) {
         DAO dao = new DAO();

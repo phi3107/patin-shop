@@ -234,13 +234,13 @@
 
               <div id="grid__content">
                 <div id="card">
-                  <form class="form" action="post" method="post">
+                  <form class="form" action="signup" method="post">
 
                     <h1 id="title">Đăng ký</h1>
 
                     <div class="signup__field">
                       <label for="first_name" class="label">Họ tên</label>
-                      <input type="text" name="first_name" id="first_name" class="input-field"
+                      <input type="text" name="fullName" id="first_name" class="input-field"
                              autofocus>
                     </div>
 
